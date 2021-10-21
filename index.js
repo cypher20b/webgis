@@ -10,10 +10,10 @@ app.use(express.json());
 
 
 const client = new Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'c25new',
-  password: 'test',
+  user: 'rmpponfcllwljz',
+  host: 'ec2-34-233-64-238.compute-1.amazonaws.com',
+  database: 'dc7577bajp72et',
+  password: 'ab99dcee3e4b2117670f5b6e5a6974942adb5ced53eacb0ced7872a7f72748df',
   port: 5432,
 })
 client.connect()
@@ -21,7 +21,7 @@ client.connect()
 // beginning of routes
 app.get('/', (req, res) => {
       client
-    .query('SELECT gid, prop_id,  landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v FROM finalc25')
+    .query('SELECT gid, prop_id,  landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v FROM c25new')
     .then(dbres => {
       // console.log(res.rows)
       res.send(dbres.rows)
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 
 app.get('/all', (req, res) => {
   client
-.query('SELECT * FROM finalc25')
+.query('SELECT * FROM c25new')
 .then(dbres => {
   console.log(dbres.rows)
   res.send(dbres.rows)
@@ -111,7 +111,7 @@ app.post('/', function (req, res) {
   // res.send(req.body)
   // res.send('Got a POST request')
     // client.connect()
-    client.query(`INSERT INTO finalc25 (prop_id, landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v) VALUES ('${req.body.prop_id}', '${req.body.landuse}', '${req.body.locality}', '${req.body.plot_no}', '${req.body.shape_area}', '${req.body.block_no_1}', '${req.body.owner_past}', '${req.body.owner_curr}', '${req.body.litigation}', '${req.body.lease_star}', '${req.body.lease_end}', '${req.body.mortgage_v}') RETURNING *`)
+    client.query(`INSERT INTO c25new (prop_id, landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v) VALUES ('${req.body.prop_id}', '${req.body.landuse}', '${req.body.locality}', '${req.body.plot_no}', '${req.body.shape_area}', '${req.body.block_no_1}', '${req.body.owner_past}', '${req.body.owner_curr}', '${req.body.litigation}', '${req.body.lease_star}', '${req.body.lease_end}', '${req.body.mortgage_v}') RETURNING *`)
   .then(result => {
     // console.log(result.rows)
     res.send('Sucessfull')
@@ -132,7 +132,7 @@ app.put('/update', function (req, res) {
 
   // function updateAny() {
   //   client.connect()
-    client.query(`UPDATE finalc25 SET (prop_id, landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v) = ('${req.body.prop_id}', '${req.body.landuse}', '${req.body.locality}', '${req.body.plot_no}', '${req.body.shape_area}', '${req.body.block_no_1}', '${req.body.owner_past}', '${req.body.owner_curr}', '${req.body.litigation}', '${req.body.lease_star}', '${req.body.lease_end}', '${req.body.mortgage_v}') WHERE gid = 30 RETURNING *`)
+    client.query(`UPDATE c25new SET (prop_id, landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v) = ('${req.body.prop_id}', '${req.body.landuse}', '${req.body.locality}', '${req.body.plot_no}', '${req.body.shape_area}', '${req.body.block_no_1}', '${req.body.owner_past}', '${req.body.owner_curr}', '${req.body.litigation}', '${req.body.lease_star}', '${req.body.lease_end}', '${req.body.mortgage_v}') WHERE gid = 30 RETURNING *`)
   .then(res => {
       console.log(res.rows)
       // client.end()
@@ -145,7 +145,7 @@ app.put('/update', function (req, res) {
 
 //   function singleUpdate() {
 //     client.connect()
-//       client.query("UPDATE finalc25 SET plot_no=26 WHERE gid = 1 RETURNING *")
+//       client.query("UPDATE c25new SET plot_no=26 WHERE gid = 1 RETURNING *")
 //     .then(res => {
 //       console.log(res.rows)
 //       client.end()
@@ -163,7 +163,7 @@ app.delete('/delete/:id', function (req, res) {
   
   let ok=res
     // client.connect()
-    client.query(`DELETE FROM finalc25 WHERE gid = ${req.params.id}`).then(res => {
+    client.query(`DELETE FROM c25new WHERE gid = ${req.params.id}`).then(res => {
       console.log(res.rowCount)
       ok.send(`Sucessfully deleted user with id ${req.params.id}`)
       console.log(`Sucessfully deleted user ${req.params.id}`)
