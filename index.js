@@ -10,11 +10,10 @@ app.use(express.json());
 
 
 const client = new Client({
-  user: 'rmpponfcllwljz',
-  host: 'ec2-34-233-64-238.compute-1.amazonaws.com',
-  database: 'dc7577bajp72et',
-  password: 'ab99dcee3e4b2117670f5b6e5a6974942adb5ced53eacb0ced7872a7f72748df',
-  port: 5432,
+  connectionString: "postgres://rmpponfcllwljz:ab99dcee3e4b2117670f5b6e5a6974942adb5ced53eacb0ced7872a7f72748df@ec2-34-233-64-238.compute-1.amazonaws.com:5432/dc7577bajp72et",
+  ssl: {
+    rejectUnauthorized: false
+  }
 })
 client.connect()
 
