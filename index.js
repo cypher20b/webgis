@@ -9,6 +9,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 
+let container=[];
 const client = new Client({
   connectionString: "postgres://rmpponfcllwljz:ab99dcee3e4b2117670f5b6e5a6974942adb5ced53eacb0ced7872a7f72748df@ec2-34-233-64-238.compute-1.amazonaws.com:5432/dc7577bajp72et",
   ssl: {
@@ -51,7 +52,6 @@ app.post('/authusers', (req, res) => {
 .query(`SELECT * FROM users `)
 .then(dbres => {
   console.log(dbres.rowCount)
-  let container=[];
   for (let i = 1; i < dbres.rowCount; i++) {
     if (dbres.rows[i].username===`${req.body.username}`) {
       container.push(dbres.rows[i])
@@ -60,6 +60,7 @@ app.post('/authusers', (req, res) => {
   }
   if (container.length>0) {
     res.send(true)
+    container=[];
   } else{
     res.send('else false')
   }
