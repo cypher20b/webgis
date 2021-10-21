@@ -53,7 +53,7 @@ app.post('/authusers', (req, res) => {
 .then(dbres => {
   console.log(dbres.rowCount)
   for (let i = 1; i < dbres.rowCount; i++) {
-    if (dbres.rows[i].username===`${req.body.username}`) {
+    if (dbres.rows[i].username===`${req.body.username}`&& dbres.rows[i].password===`${req.body.password}`) {
       container.push(dbres.rows[i])
     }
     
@@ -62,13 +62,13 @@ app.post('/authusers', (req, res) => {
     res.send(true)
     container=[];
   } else{
-    res.send('still else false')
+    res.send(false)
   }
   // res.send(true)
   // client.end()
 })
 .catch(e => {
-  res.send('catch false')
+  res.send(false)
   console.error(e.stack)
   // client.end()
 })
