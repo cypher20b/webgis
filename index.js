@@ -61,13 +61,13 @@ app.post('/authusers', (req, res) => {
   if (container.length>0) {
     res.send(true)
   } else{
-    res.send("else false")
+    res.send('else false')
   }
   // res.send(true)
   // client.end()
 })
 .catch(e => {
-  res.send("catch false")
+  res.send('catch false')
   console.error(e.stack)
   // client.end()
 })
