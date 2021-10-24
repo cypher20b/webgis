@@ -120,7 +120,7 @@ app.post('/', function (req, res) {
   })
   .catch(e => {
     res.send("failed")
-    console.error(e)
+    console.error(e.stack)
     client.end()
   })
 
