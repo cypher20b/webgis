@@ -114,12 +114,12 @@ app.post('/', function (req, res) {
     client.query(`INSERT INTO c25new (prop_id, landuse, locality, plot_no, shape_area, block_no_1, owner_past, owner_curr, litigation, lease_star, lease_end, mortgage_v) VALUES ('${req.body.prop_id}', '${req.body.landuse}', '${req.body.locality}', '${req.body.plot_no}', '${req.body.shape_area}', '${req.body.block_no_1}', '${req.body.owner_past}', '${req.body.owner_curr}', '${req.body.litigation}', '${req.body.lease_star}', '${req.body.lease_end}', '${req.body.mortgage_v}') RETURNING *`)
   .then(result => {
     // console.log(result.rows)
-    res.send('Sucessfull')
+    res.send('"Sucessfull"')
     console.log("Sucessfull")
     // client.end()
   })
   .catch(e => {
-    res.send("failed")
+    res.send('"failed"')
     console.error(e.stack)
     client.end()
   })
