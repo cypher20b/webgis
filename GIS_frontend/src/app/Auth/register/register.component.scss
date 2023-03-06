@@ -1,0 +1,17 @@
+.registerForm{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 585px){
+    .formfields{
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width: 586px){
+    .formfields{
+        width: 450px;
+    }
+}

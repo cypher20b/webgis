@@ -1,0 +1,51 @@
+<div class="parent-container">
+  <app-navbar></app-navbar>
+  <div>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <!-- <mat-toolbar>Menu</mat-toolbar> -->
+        <mat-nav-list>
+          <div class="div-flex" style="justify-content: center; padding-top: 50px;">
+            <img src="../../assets/profileImage.jpg" style="width: 80px; height: 80px; border-radius: 50%;"
+              alt="profileImage" srcset="">
+          </div><br>
+          <div class="div-flex">
+            <span><i class="fa fa-fw fa-user-circle" aria-hidden="true"></i>&nbsp; User's Name</span>
+          </div>
+          <div class="div-flex" style="padding-top: 10px;">
+            <span><i class="fa fa-fw fa-edit" aria-hidden="true"></i>&nbsp; User's Name</span>
+          </div>
+          <div class="div-flex" style="padding-top: 10px;">
+            <span><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Settings</span>
+          </div>
+          <button (click)="logout()" style="width: 100%; margin-top: 50px;" class="btn btn-secondary">
+            <mat-icon>follow_the_signs</mat-icon>Logout
+          </button>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content class="content-div">
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header style="background-color: rgba(133, 133, 133, 0.452);">
+              <mat-panel-title>
+
+              </mat-panel-title>
+              <mat-panel-description>
+                {{panelOpenState ? 'Minimize' : 'Click here to ADD/EDIT Database'}}
+                <mat-icon *ngIf="!panelOpenState">open_in_new</mat-icon>
+                <mat-icon *ngIf="panelOpenState">pin_end</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+              <app-postform></app-postform>
+            </p>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <app-dbtable></app-dbtable>
+        <!-- <app-table></app-table> -->
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+  </div>
+</div>

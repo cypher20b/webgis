@@ -1,0 +1,93 @@
+
+
+<mat-drawer-container class="h_100 w_100" hasBackdrop="false">
+  <!-- <mat-drawer #drawer [(opened)]="openstate" mode="over"style="width: 300px; padding: 5px;"> -->
+    <!-- <div id="query_tab">
+      <div class="">
+        <div class="pt-3">
+          <h5 id="currowner"></h5>
+          <i><span style="font-size: small;" id="locality"></span></i>
+          <hr>
+          <br>
+          <div class="d-flex pt-2">
+            <label for="name">PROPERTY No.</label>
+            <label id="Propid" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">PLOT No</label>
+            <label id="plotno" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2">
+            <label for="name">LAND SIZE (Acre)</label>
+            <label id="size" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);"> 
+            <label for="name">YEAR OF LEASE</label>
+            <label id="leasein" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2">
+            <label for="name">END OF LEASE</label>
+            <label id="leaseout" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">TYPE OF LAND</label>
+            <label id="landuse" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2">
+            <label for="name">LITIGATION STATUS</label>
+            <label id="litigation" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">MORTGAGE STATUS</label>
+            <label id="mortgage" style="margin-left: auto;" for="name"></label>
+          </div>
+
+
+        </div>
+      </div>
+    </div> -->
+
+
+
+  <!-- </mat-drawer> -->
+  <mat-drawer-content>
+    <div id="map" class="map d-flex">
+      <nav class="navbar navbar-light bg-light navbar-expand-lg" style="position: absolute; z-index: 2; width: 100%;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/client"><marquee behavior="scroll" direction="left">
+            <h5>login to perform searchs</h5>
+          </marquee></a>
+          <a href="/client" style="margin-left: 30px;"><h5>Community 25 Web based GIS Application</h5></a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/client">Help</a>
+              <a class="nav-link" href="/client">Copy right</a>
+              <a class="nav-link">About Us</a> 
+              <a class="nav-link">Login</a> 
+          </div>
+        </div>
+      </nav>      
+              <!-- <div class="searchBar">
+                  <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" id="button-addon2" (click)="openTable()"><span class="fa fa-search form-control-feedback"></span></button>
+                    </div>
+              </div> -->
+          </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

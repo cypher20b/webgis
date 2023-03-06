@@ -1,0 +1,39 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 20%;
+  min-height: 600px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.div-flex{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.div-center-flex{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mat-sidenav-fixed {
+  position: absolute;
+}
+
+.parent-container{
+  max-height: 100%;
+}
+
+.content-div{
+  max-height: 550px;
+}

@@ -1,0 +1,163 @@
+
+
+<mat-drawer-container class="h_100 w_100" hasBackdrop="false">
+  <mat-drawer #drawer [(opened)]="openstate" mode="over"style="width: 300px; padding: 5px;">
+    <div id="query_tab">
+      <div class="">
+        <div class="pt-3">
+          <!-- <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search">
+          </div> -->
+          <h5 id="currowner"></h5>
+          <i><span style="font-size: small;" id="locality"></span></i>
+          <hr>
+          <br>
+          <div class="d-flex pt-2">
+            <label for="name">PROPERTY No.</label>
+            <label id="Propid" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">PLOT No</label>
+            <label id="plotno" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2">
+            <label for="name">LAND SIZE (Acre)</label>
+            <label id="size" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">YEAR OF LEASE</label>
+            <label id="leasein" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2">
+            <label for="name">END OF LEASE</label>
+            <label id="leaseout" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">TYPE OF LAND</label>
+            <label id="landuse" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2">
+            <label for="name">LITIGATION STATUS</label>
+            <label id="litigation" style="margin-left: auto;" for="name"></label>
+          </div>
+
+          <div class="d-flex pt-2" style="background-color: rgba(175, 173, 171, 0.459);">
+            <label for="name">MORTGAGE STATUS</label>
+            <label id="mortgage" style="margin-left: auto;" for="name"></label>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <div id="map" class="map d-flex">
+      <nav class="navbar navbar-light bg-light" style="position: absolute; z-index: 2; width: 100%;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/client"><marquee behavior="scroll" direction="left">
+            <h5>Community 25 Web based GIS Application</h5>
+          </marquee></a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/client">Help</a>
+              <a class="nav-link" href="/client">Copy right</a>
+              <a class="nav-link">About Us</a>
+          </div>
+        </div>
+      </nav>
+              <div class="searchBar">
+                  <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" id="button-addon2" (click)="openTable()"><span class="fa fa-search form-control-feedback"></span></button>
+                    </div>
+              </div>
+          </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+<!-- <div id="title">
+  <marquee behavior="scroll" direction="left">
+    <h5><b>Community 25 Web based GIS Application</b></h5>
+  </marquee>
+</div>
+<div id="map">
+
+  <form id="measure">
+    <label>Measurement type &nbsp;</label>
+    <select id="measuretype">
+      <option value="select">Select Measure option</option>
+      <option value="length">Length (LineString)</option>
+      <option value="area">Area (Polygon)</option>
+      <option value="clear">Clear Measurement</option>
+    </select>
+  </form>
+  <form id="getinfo">
+    <label>GetFeatureinfo&nbsp;</label>
+    <select id="getinfotype">
+      <option value="select">Select option</option>
+      <option value="activate_getinfo">Activate GetFeatureinfo</option>
+      <option value="deactivate_getinfo">Deactivate GetFeatureinfo</option>
+    </select>
+  </form>
+  <button onclick="wms_layers()" id="wms_layers_btn">Available WMS Layers</button>
+  <button onclick="clear_all()" id="clear_btn">Clear</button>
+
+</div>
+
+<div id="popup" class="ol-popup">
+  <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+  <div id="popup-content"></div>
+</div>
+<div id="info">&nbsp;</div>
+
+
+<div id="query_tab">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#form">Select by Attributes</a></li>
+
+  </ul>
+
+
+  <div class="tab-content">
+    <div id="form" class="tab-pane fade in active">
+      <label for="layer">Select Layer</label>
+      <select class="form-control" id="layer" name="layer">
+        <option value="">Select Layer</option>
+      </select>
+      <br>
+      <label for="attributes">Select attribute</label>
+      <select class="form-control" id="attributes" name="attributes">
+        <option value="">Select Attributes</option>
+      </select>
+      <br>
+      <label for="operator">Select operator</label>
+      <select class="form-control" id="operator" name="operator">
+        <option value="">Select operator</option>
+      </select>
+      <br>
+
+      <label for="value">Enter Value</label>
+      <input type="text" class="form-control" id="value" name="value">
+      <br>
+      <button class="btn btn-success" onclick="query()">Load Query</button>
+    </div> -->

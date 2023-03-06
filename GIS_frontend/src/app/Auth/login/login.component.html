@@ -1,0 +1,18 @@
+<!-- <mat-form-field *ngIf = "this.service.register_status==true" class="example-form-field">
+    <mat-label>Username</mat-label>
+    <input matInput type="text" [(ngModel)]="details.username">
+  </mat-form-field>
+  <mat-form-field *ngIf = "this.service.register_status==true" class="example-form-field">
+    <mat-label>password</mat-label>
+    <input matInput type="password" [(ngModel)]="details.password">
+  </mat-form-field> -->
+  <mat-form-field class="example-form-field">
+    <mat-label>Username</mat-label>
+    <input matInput type="text" [(ngModel)]="details.username">
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+    <mat-label>password</mat-label>
+    <input matInput type="password" [(ngModel)]="details.password">
+  </mat-form-field>
+<button mat-button *ngIf = "this.service.register_status==true" (click)='login()'>login</button>
+<button mat-button *ngIf = "this.service.register_status==false" (click)='logout()' >logout</button>

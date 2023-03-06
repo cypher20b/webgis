@@ -1,0 +1,13 @@
+
+ <div  style="display: flex; align-items: center; justify-content: center; height: 100%;">
+    
+<mat-spinner class="spinnerclass d-none"></mat-spinner>
+    <div id="loginform" class="loginform">
+        <h5 class="w-100">Login</h5>
+            <input [disabled]="waitforserver" class="form-control w-100" placeholder="Username" type="text" name="username" [(ngModel)]="details.username">
+            <input [disabled]="waitforserver" class="form-control w-100 mt-4" type="password" placeholder="Password" name="password" [(ngModel)]="details.password">
+        <div style="display: flex; padding-top: 5px;">
+            <button [disabled]="waitforserver" mat-raised-button color="primary" style="margin-left: auto; width: 100%;" (click)='login()' >login</button></div>
+            <p class="d-flex pt-1">Don't Have an Account? <a disabled style="margin-left: auto; color: rgb(10, 129, 240); padding-top: 0%;" (click)='signup()' class="btn">Sign up</a></p>
+    </div>
+ </div>

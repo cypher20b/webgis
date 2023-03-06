@@ -1,0 +1,24 @@
+<div style="width: 100%; height: 100%;" [hidden]="dbservice.showStartUpHtml">
+    <nav class="navbar navbar-light" style="background-color:   #078649;">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color: whitesmoke;">Community 25 Web based GIS Application</a>
+        </div>
+    </nav>
+    <div style="width: 100%; height: 90%; display: flex; justify-content: center; align-items: center; background-image: url('assets/surv1.jpg');background-repeat: no-repeat;background-size: cover;">
+        <div class="d-flex" style="">
+            <button (click)="openAdmin()" style="background:transparent;" mat-flat-button>
+                <label for="cash">
+                    <i class="fa fo fa-user-circle-o" aria-hidden="true"></i>
+                    <span><i class="fa fa-lock fa-fw" aria-hidden="true"></i>&nbsp; Admin</span>
+                </label>
+            </button>
+            <button (click)="openClient()" style="background:transparent;" mat-flat-button>
+                <label for="cash">
+                    <i class="fa fo fa-user" aria-hidden="true"></i>
+                    <span><i class="fa fa-unlock fa-fw" aria-hidden="true"></i>&nbsp; Client</span>
+                </label>
+            </button>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

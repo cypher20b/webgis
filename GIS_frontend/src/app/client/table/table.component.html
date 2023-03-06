@@ -1,0 +1,89 @@
+<!-- <button (click)="loadAll()">load data</button> -->
+
+<div style="width: 100%;">
+  <select [(ngModel)]="selectedValue" name="" id="">
+    <option value="">-- Search By --</option>
+    <option value="FilterByLanduse">LandUse</option>
+    <option value="FilterByOwner">Owner's Name</option>
+    <option value="FilterByPropId">Property Id</option>
+  </select>
+
+<mat-form-field appearance="standard" class="ml-small">
+  <mat-label>Search...</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input [(ngModel)]="value">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchBar()">
+    <mat-icon>close</mat-icon>
+  </button> 
+</mat-form-field>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort  style="background-color: rgb(245, 245, 245); width: 100%;">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="OBJECTID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.OBJECTID||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Prop_ID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> Property ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.Prop_ID||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="owner_curr">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header  style="background-color: rgba(167, 166, 166, 0.452)"> Current Owner </th>
+      <td mat-cell *matCellDef="let row"> {{row.owner_curr||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Locality">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> locality </th>
+      <td mat-cell *matCellDef="let row"> {{row.Locality||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Shape_area">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> Area(acre) </th>
+      <td mat-cell *matCellDef="let row"> {{row.Shape_area||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="litigation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> Litigation </th>
+      <td mat-cell *matCellDef="let row"> {{row.litigation||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mortgage_v">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> Mortgage </th>
+      <td mat-cell *matCellDef="let row"> {{row.mortgage_v||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="LandUse">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> landuse </th>
+      <td mat-cell *matCellDef="let row"> {{row.LandUse||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lease_star">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> Lease start </th>
+      <td mat-cell *matCellDef="let row"> {{row.lease_star.slice(0, 10)||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lease_end">
+      <th mat-header-cell *matHeaderCellDef mat-sort-heade> Lease End </th>
+      <td mat-cell *matCellDef="let row"> {{row.lease_end.slice(0, 10)||"none"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="coordinates">
+      <th mat-header-cell style="display: none;" *matHeaderCellDef mat-sort-heade> coordinates </th>
+      <td mat-cell  style="display: none;" *matCellDef="let row"> {{row.coordinates.slice(0, 10)||"none"}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row matRipple (click)="rowclick(row.coordinates)" *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the Search Query "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>

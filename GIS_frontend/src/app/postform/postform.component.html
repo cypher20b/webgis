@@ -1,0 +1,59 @@
+<form #heroForm="ngForm" class="example-form w-100 m-2">
+  <table class="d-flex" cellspacing="0"><tr  style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+      <td style="width: 100%;"><input placeholder="Property ID" type="text" class="form-control" name="prop_id"
+        [(ngModel)]="postdata.prop_id"></td>
+      <td style="width: 100%;"><select class="form-select" name="landuse" aria-label="Default select example" [(ngModel)]="postdata.landuse">
+        <option selected style="color: #ced4da;">--select land usage--</option>
+        <option *ngFor="let pow of landusage">{{pow}}</option>
+      </select></td>
+      <td style="width: 100%;"><input placeholder="locality eg.COMM25" type="text" class="form-control"
+        name="locality" [(ngModel)]="postdata.locality"></td>
+  </tr></table> 
+
+  <table class="d-flex" cellspacing="0"><tr style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+    <td style="width: 100%;"><input placeholder="Current Owner" type="text" class="form-control" name="owner_curr"
+      [(ngModel)]="postdata.owner_curr"></td>
+      <td style="width: 100%;"><input placeholder="Previous Owner" type="text" class="form-control" name="owner_past"
+        [(ngModel)]="postdata.owner_past"></td>
+      <td style="width: 100%;"><input placeholder="block No" type="text" class="form-control" name="block_no_1"
+        [(ngModel)]="postdata.block_no_1"></td>
+  </tr></table>
+    <!-- <table class="example-full-width" style="table-layout: fixed;" cellspacing="0"><tr>
+  </tr></table> -->
+  <table class="d-flex" cellspacing="0"><tr style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+    <td style="width: 100%;"><input placeholder="Plot No" type="text" class="form-control" name="plot_no"
+      [(ngModel)]="postdata.plot_no"></td>
+    <td style="width: 100%;"><input placeholder="Shape Area(acre)" type="text" class="form-control"
+      name="shape_area" [(ngModel)]="postdata.shape_area"></td>
+
+
+      <td style="width: 100%;"><select class="form-select" name="mortgage_v" aria-label="Default select example" [(ngModel)]="postdata.mortgage_v">
+        <option selected style="color: #ced4da;">--Mortgage status--</option>
+        <option *ngFor="let pow of mortgage_vs">{{pow}}</option>
+      </select></td>
+
+
+
+    </tr></table>
+    <!-- <table class="example-full-width" style="table-layout: fixed;" cellspacing="0"><tr>
+  </tr></table> -->
+  <table class="d-flex" cellspacing="0"><tr style="display: grid; grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+    <td><select class="form-select" name="litigation" aria-label="Default select example" [(ngModel)]="postdata.litigation">
+      <option selected style="color: #ced4da;">--litigation status--</option>
+      <option *ngFor="let pow of litigations">{{pow}}</option>
+    </select></td>
+      <td style="display:inline-flex; width: 90%;">
+        <label>Lease Start</label>
+      <input name="lease_star" [(ngModel)]="postdata.lease_star" #lease_star type="date" class="form-control">
+      <td >
+        <div style="width: 100%; display:inline-flex">
+          <label>Lease End</label>
+          <input name="lease_end" [(ngModel)]="postdata.lease_end" #lease_end type="date" class="form-control">
+        </div>
+      </td>
+    </tr></table>
+</form>
+<div style="display: flex;" class="example-form">
+  <button style="margin-left: auto;"(click)="postToDb()" mat-raised-button color="primary">Save</button>
+  <button type="button" class="btn btn-default" (click)="heroForm.reset()">Reset form</button>
+</div>

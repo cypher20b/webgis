@@ -1,0 +1,10 @@
+<h5 mat-dialog-title>Delete plot No: {{this.crudservice.updatedata.prop_id}}</h5>
+<div mat-dialog-content>
+  <p>are you sure you want to delete <strong>{{this.crudservice.updatedata.owner_curr}}</strong> from database?</p>
+</div>
+<div mat-dialog-actions class="d-flex">
+  <!-- <button mat-button [mat-dialog-close]="deleteUser(this.crudservice.updatedata.gid)" cdkFocusInitial>Ok</button> -->
+  <button mat-button color="primary" (click)="deleteUser(this.crudservice.updatedata.gid)" cdkFocusInitial>Yes</button>
+  <button mat-button color="warn" style="margin-left: auto;" (click)="onNoClick()">No</button>
+</div>
+  

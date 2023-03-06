@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <!-- <button class="navbar-toggler" type="button" data-toggle="expanded" data-target="#Demo03" aria-controls="Demo03" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    
+    <div class="collapse navbar-collapse" *ngIf="this.LOGIN" id="Demo03">
+      <nav class="nav">
+        <mat-icon class="material-icons" style="padding-right: 5px; padding-top: 6px; color: rgb(2, 133, 209);">widgets</mat-icon><a routerLink="/admin" class="nav-link pl-1">Dashboard</a>
+      </nav>
+    </div>
+  
+    <div class="justify-content-end">
+      <nav class="nav"> 
+        <!-- <a routerLink="/report" class="btn">Report</a> -->
+        <a routerLink="/register" class="btn" *ngIf="this.LOGIN === false" style="color: rgb(2, 133, 209);">Register</a>
+        <img *ngIf="this.LOGIN" src="../../assets/windows file permission setting 3.PNG" class="border-radius: 50%; profile_pic" alt="">
+        <a (click)="openDialog()" class="btn nav-link" style="color: rgb(2, 133, 209);">{{this.service.login_status}}</a>
+      </nav>
+    </div>
+    <button *ngIf="this.LOGIN" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button routerLink="/admin/edit" mat-menu-item>
+        <mat-icon>keyboard_hide</mat-icon>
+        <span>Personal Notepad</span>
+      </button>
+      <button routerLink="/gallary" mat-menu-item>
+        <mat-icon>camera</mat-icon>
+        <span>Change Profile pic</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>payment</mat-icon>
+        <span>Account Setup</span>
+      </button>
+    </mat-menu>
+  </nav>
+  
+  
